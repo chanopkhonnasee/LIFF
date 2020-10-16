@@ -20,17 +20,14 @@
   <p id="decodedIDToken"><b>email:</b> </p>
   
   <script src="js/vconsole.min.js"></script>
-
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
   <script>
     // Query Params
     const queryString = decodeURIComponent(window.location.search);
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
     main()
-  </script>
 
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
-  <script>
     var vConsole = new VConsole()
     console.log("Hello World!")
 
