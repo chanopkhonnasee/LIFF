@@ -71,10 +71,12 @@
     function getContext() {
       if (liff.getContext() != null) {
         
-        if (liff.getContext().type != null && liff.getContext().type != undefined) {
+        // liff.getContext().type != undefined
+
+        if (liff.getContext().type != null) {
           document.getElementById("type").append(liff.getContext().type)
         } else {
-          document.getElementById("type").append("null or undefined")
+          document.getElementById("type").append("type id null")
         }
 
         if (liff.getContext().viewType != null) {
@@ -88,7 +90,7 @@
         if (liff.getContext().roomId != null) {
           document.getElementById("roomId").append(liff.getContext().roomId)
         }
-        
+
         if (liff.getContext().groupId != null) {
           document.getElementById("groupId").append(liff.getContext().groupId)
         }
