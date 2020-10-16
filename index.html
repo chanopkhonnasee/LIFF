@@ -70,11 +70,11 @@
 
     function getContext() {
       if (liff.getContext() != null) {
-        document.getElementById("type").append(liff.getContext().type)
-        document.getElementById("viewType").append(liff.getContext().viewType)
-        document.getElementById("utouId").append(liff.getContext().utouId)
-        document.getElementById("roomId").append(liff.getContext().roomId)
-        document.getElementById("groupId").append(liff.getContext().groupId)
+        if (liff.getContext().type != null) document.getElementById("type").append(liff.getContext().type)
+        if (liff.getContext().viewType != null) document.getElementById("viewType").append(liff.getContext().viewType)
+        if (liff.getContext().utouId != null) document.getElementById("utouId").append(liff.getContext().utouId)
+        if (liff.getContext().roomId != null) document.getElementById("roomId").append(liff.getContext().roomId)
+        if (liff.getContext().groupId != null) document.getElementById("groupId").append(liff.getContext().groupId)
       }
     }
 
