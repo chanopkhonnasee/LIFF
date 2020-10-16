@@ -17,10 +17,6 @@
   <p id="decodedIDToken"><b>email:</b> </p>
   
   <script src="js/vconsole.min.js"></script>
-  <script>
-    var vConsole = new VConsole()
-    console.log("Hello World!")
-  </script>
 
   <script>
     // Query Params
@@ -31,6 +27,9 @@
 
   <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
   <script>
+    var vConsole = new VConsole()
+    console.log("Hello World!")
+
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
