@@ -71,11 +71,21 @@
     function getContext() {
       if (liff.getContext() != null) {
         // why 404
-        // if (liff.getContext().type != null) document.getElementById("type").append(liff.getContext().type)
-        // if (liff.getContext().viewType != null) document.getElementById("viewType").append(liff.getContext().viewType)
-        // if (liff.getContext().utouId != null) document.getElementById("utouId").append(liff.getContext().utouId)
-        // if (liff.getContext().roomId != null) document.getElementById("roomId").append(liff.getContext().roomId)
-        // if (liff.getContext().groupId != null) document.getElementById("groupId").append(liff.getContext().groupId)
+        if (liff.getContext().type != null) {
+          document.getElementById("type").append(liff.getContext().type)
+        }
+        if (liff.getContext().viewType != null) {
+          document.getElementById("viewType").append(liff.getContext().viewType)
+        }
+        if (liff.getContext().utouId != null) {
+          document.getElementById("utouId").append(liff.getContext().utouId)
+        }
+        if (liff.getContext().roomId != null) {
+          document.getElementById("roomId").append(liff.getContext().roomId)
+        }
+        if (liff.getContext().groupId != null) {
+          document.getElementById("groupId").append(liff.getContext().groupId)
+        }
       }
     }
 
