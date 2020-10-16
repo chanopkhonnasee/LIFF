@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>MWM Connect-Notify</title>
   <link rel="stylesheet" href="css/style.css" media="all">
 </head>
+
 <body>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
@@ -48,6 +50,18 @@
     }
 
     async function shareMsg() {
+      // top 5 msg
+      await liff.shareTargetPicker([
+        {
+          "type": "sticker",
+          "stickerId": 1,
+          "packageId": 1
+        },
+        {
+          type: "text",
+          text: "This message was sent by ShareTargetPicker"
+        }
+      ])
     }
 
     function logOut() {
@@ -97,14 +111,14 @@
 
     function getContext() {
       if (liff.getContext() != null) {
-        
+
         // liff.getContext().type != undefined
         // else {
         //   document.getElementById("type").append("type id null")
         // }
         if (liff.getContext().type != null) {
           document.getElementById("type").append(liff.getContext().type)
-        } 
+        }
 
         if (liff.getContext().viewType != null) {
           document.getElementById("viewType").append(liff.getContext().viewType)
@@ -130,8 +144,8 @@
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      if ( liff.getDecodedIDToken() != null ){
-        if( liff.getDecodedIDToken().email != null ) {
+      if (liff.getDecodedIDToken() != null) {
+        if (liff.getDecodedIDToken().email != null) {
           document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
         } else {
           document.getElementById("decodedIDToken").append("email is null")
@@ -175,4 +189,5 @@
     main()
   </script>
 </body>
+
 </html>
