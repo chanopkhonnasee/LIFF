@@ -51,15 +51,24 @@
     }
 
     function logOut() {
+      liff.logout()
+      window.location.reload()
     }
 
     function closed() {
+      liff.closeWindow()
     }
 
     async function scanCode() {
+      const result = await liff.scanCode()
+      document.getElementById("scanCode").append(result.value)
     }
 
     function openWindow() {
+      liff.openWindow({
+        url: "https://line.me",
+        external: true
+      })
     }
 
     async function getFriendship() {
@@ -149,12 +158,19 @@
 
     async function main() {
       // alert("LINE Developers x Skooldio")
+      liff.ready.then(() => {
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+        if (liff.isLoggedIn()) {
+          getEnvironment()
+          getUserProfile()
+          getContext()
+          getFriendship()
+          // createUniversalLink()
+        } else {
+          liff.login()
+        }
+      })
       await liff.init({ liffId: "1655102813-xELeZQre" })
-      getEnvironment()
-      getUserProfile()
-      getContext()
-      getFriendship()
-      // createUniversalLink()
     }
     main()
   </script>
