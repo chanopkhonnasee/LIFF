@@ -23,10 +23,11 @@
 
   <script>
     // Query Params
-    alert("hello, where is my code")
+    alert("hello, where is my code NANI")
     const queryString = decodeURIComponent(window.location.search);
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
+    main()
   </script>
 
   <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
@@ -59,7 +60,6 @@
         }
       })
     }
-    main()
   </script>
 </body>
 
