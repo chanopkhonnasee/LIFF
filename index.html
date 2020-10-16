@@ -80,7 +80,11 @@
       if ( liff.getDecodedIDToken() != null ){
         if( liff.getDecodedIDToken().email != null ) {
           document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+        } else {
+          document.getElementById("decodedIDToken").append("email is null")
         }
+      } else {
+        document.getElementById("decodedIDToken").append("getDecodedIDToken is null")
       }
     }
 
