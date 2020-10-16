@@ -66,19 +66,30 @@
     }
 
     async function sendMsg() {
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+          }
+        ])
+        alert("Message sent")
+      }
     }
 
     function getContext() {
       if (liff.getContext() != null) {
         
         // liff.getContext().type != undefined
+        // else {
+        //   document.getElementById("type").append("type id null")
+        // }
+
 
         if (liff.getContext().type != null) {
           document.getElementById("type").append(liff.getContext().type)
         } 
-        // else {
-        //   document.getElementById("type").append("type id null")
-        // }
 
         if (liff.getContext().viewType != null) {
           document.getElementById("viewType").append(liff.getContext().viewType)
