@@ -23,7 +23,6 @@
 
   <script>
     // Query Params
-    alert("hello, where is my code NANI")
     const queryString = decodeURIComponent(window.location.search);
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
@@ -48,6 +47,7 @@
       }
     }
     async function main() {
+      alert("go to main")
       await liff.init({ liffId: "1655102813-xELeZQre" })
 
       liff.ready.then(() => {
