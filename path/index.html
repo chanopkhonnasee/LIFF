@@ -9,7 +9,7 @@
 
 <body>
   <h1>Hello World!</h1>
-  <p id="param"><b>Query Param: </b></p>
+  <p id="param"><b>Query Param!!!!: </b></p>
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
@@ -44,11 +44,14 @@
     }
     async function main() {
       await liff.init({ liffId: "1655102813-xELeZQre" })
-      if (liff.isLoggedIn()) {
-        getUserProfile()
-      } else {
-        liff.login({ redirectUri: "https://chanopkhonnasee.github.io/LIFF/path/" })
-      }
+
+      liff.ready.then(() => {
+        if (liff.isLoggedIn()) {
+          getUserProfile()
+        } else {
+          liff.login({ redirectUri: "https://chanopkhonnasee.github.io/LIFF/path/" })
+        }
+      })
     }
     main()
   </script>
