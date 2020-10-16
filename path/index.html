@@ -51,7 +51,9 @@
       liff.ready.then(() => {
         if (liff.isLoggedIn()) {
           getUserProfile()
+          alert("WTFFF")
         } else {
+          alert("LOG INNNN")
           liff.login({ redirectUri: "https://chanopkhonnasee.github.io/LIFF/path/" })
         }
       })
