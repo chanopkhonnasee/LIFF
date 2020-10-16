@@ -77,7 +77,11 @@
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      // document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      if ( liff.getDecodedIDToken() != null ){
+        if( liff.getDecodedIDToken().email != null ) {
+          document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+        }
+      }
     }
 
     function getEnvironment() {
