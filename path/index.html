@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Path</title>
-  <link rel="stylesheet" href="css/style.css" media="all">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -16,6 +15,7 @@
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
   <p id="decodedIDToken"><b>email:</b> </p>
+  
   <script>
     // Query Params
     const queryString = decodeURIComponent(window.location.search);
@@ -31,7 +31,11 @@
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      if (liff.getDecodedIDToken().email != null) {
+        document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      } else {
+        document.getElementById("decodedIDToken").append("email is null")
+      }
     }
     async function main() {
       await liff.init({ liffId: "1655102813-xELeZQre" })
