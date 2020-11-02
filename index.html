@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>MWM Connect-Notify</title>
+  <title>หวานเย็น</title>
   <!-- <link rel="stylesheet" href="css/style.css" media="all"> -->
   <script>
     document.write('<link rel="stylesheet" href="css/style.css?cache=' + new Date().getTime() +'" >')
@@ -13,14 +13,16 @@
 </head>
 
 <body>
-  <p id="os"><b>OS:</b> </p>
+  <!-- <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
-  <p id="accessToken"><b>AccessToken:</b> </p>
+  <p id="accessToken"><b>AccessToken:</b> </p> -->
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
-  <p id="displayName"><b>displayName:</b> </p>
+
+  <p id="queue"><b>queue:</b> </p>
+  <!-- <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
   <p id="decodedIDToken"><b>email:</b> </p>
   <p id="type"><b>type:</b> </p>
@@ -32,15 +34,17 @@
   <p id="scanCode"><b>Code:</b> </p>
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
   <p id="universalLink1"><b>Universal Link:</b> </p>
-  <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
-  <p><a href="https://chanopkhonnasee.github.io/LIFF/path/?param=1">Link to Path</a></p>
+  <p id="universalLink2"><b>Universal Link with Query params:</b> </p> -->
+  <!-- <p><a href="https://chanopkhonnasee.github.io/LIFF/path/?param=1">Link to Path</a></p> -->
 
-  <button id="btnMsg" onclick="sendMsg()">Send Message</button>
+  <!-- <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
-  <button id="btnClose" onclick="closed()">Close</button>
+  <button id="btnClose" onclick="closed()">Close</button> -->
+
+  <button id="btnQueue" onclick="queue()">จองคิว</button>
 
   <script src="js/vconsole.min.js"></script>
   <script>
@@ -50,6 +54,7 @@
 
   <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
   <script>
+    var queue = 0
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
       document.getElementById("universalLink1").append(link1)
@@ -153,17 +158,17 @@
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
-      document.getElementById("statusMessage").append(profile.statusMessage)
-      document.getElementById("displayName").append(profile.displayName)
-      if (liff.getDecodedIDToken() != null) {
-        if (liff.getDecodedIDToken().email != null) {
-          document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
-        } else {
-          document.getElementById("decodedIDToken").append("email is null")
-        }
-      } else {
-        document.getElementById("decodedIDToken").append("getDecodedIDToken is null")
-      }
+      // document.getElementById("statusMessage").append(profile.statusMessage)
+      // document.getElementById("displayName").append(profile.displayName)
+      // if (liff.getDecodedIDToken() != null) {
+      //   if (liff.getDecodedIDToken().email != null) {
+      //     document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      //   } else {
+      //     document.getElementById("decodedIDToken").append("email is null")
+      //   }
+      // } else {
+      //   document.getElementById("decodedIDToken").append("getDecodedIDToken is null")
+      // }
     }
 
     function getEnvironment() {
@@ -181,16 +186,26 @@
       }
     }
 
+    function queue() {
+      if(profile.userId == "Udfa9e23756ea873dbc4709511c184b14"){
+        this.queue= this.queue+1
+      } else {
+        this.queue= this.queue+1
+      }
+    }
+
     async function main() {
       // alert("LINE Developers x Skooldio")
       liff.ready.then(() => {
         document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         if (liff.isLoggedIn()) {
-          getEnvironment()
+          // getEnvironment()
           getUserProfile()
-          getContext()
-          getFriendship()
-          createUniversalLink()
+          // getContext()
+          // getFriendship()
+          // createUniversalLink()
+
+          document.getElementById("queue").append(this.queue)
         } else {
           liff.login()
         }
