@@ -10,6 +10,8 @@
 </head>
 
 <body>
+  <p>build No.1 </p>
+
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="queue"><b>queue:</b> </p>
@@ -43,13 +45,13 @@
 
     async function main() {
       liff.ready.then(() => {
-        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         if (liff.isLoggedIn()) {
           getUserProfile()
-          document.getElementById("queue").append(queue)
         } else {
           liff.login()
         }
+
+        document.getElementById("queue").append(queue)
       })
       await liff.init({ liffId: "1655187170-xynqG53n" })
     }
