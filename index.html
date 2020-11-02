@@ -30,11 +30,13 @@
     var queue = 0
 
     function insertQueue() {
-      // if(profile.userId == "Udfa9e23756ea873dbc4709511c184b14"){
+      if(profile.userId == "Udfa9e23756ea873dbc4709511c184b14"){
         queue= queue+1
-      // } else {
-        // queue= queue+1
-      // }
+        document.getElementById("queue").append(queue)
+      } else {
+        queue= queue-1
+        document.getElementById("queue").append(queue)
+      }
     }
 
     async function getUserProfile() {
