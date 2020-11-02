@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <p>build No.1 </p>
+  <p>build No.2 </p>
 
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
@@ -28,9 +28,10 @@
   <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
   <script>
     var queue = 0
+    var userId = ""
 
     function insertQueue() {
-      if(profile.userId == "Udfa9e23756ea873dbc4709511c184b14"){
+      if(userId == "Udfa9e23756ea873dbc4709511c184b14"){
         queue= queue+1
         document.getElementById("queue").append(queue)
       } else {
@@ -43,6 +44,7 @@
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
+      userId = profile.userId
     }
 
     async function main() {
