@@ -10,11 +10,11 @@
 </head>
 
 <body>
-  <p>build No.3 </p>
+  <p>build No.4 </p>
 
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
-  <p id="queue"><b>queue:</b> </p>
+  <p id="queue"></p>
 
 
   <button id="btnQueue" onclick="insertQueue()">จองคิว</button>
@@ -32,11 +32,11 @@
 
     function insertQueue() {
       if(userId == "Udfa9e23756ea873dbc4709511c184b14"){
-        queue= queue+2
-        document.getElementById("queue").append(queue)
+        queue= queue+1
+        document.getElementById("queue").innerHTML = "queue:"+queue
       } else {
-        queue= queue+3
-        document.getElementById("queue").append(queue)
+        queue= queue-1
+        document.getElementById("queue").innerHTML = "queue:"+queue
       }
     }
 
@@ -54,7 +54,7 @@
         } else {
           liff.login()
         }
-        document.getElementById("queue").append(queue)
+        document.getElementById("queue").innerHTML = "queue:"+queue
       })
       await liff.init({ liffId: "1655187170-xynqG53n" })
     }
