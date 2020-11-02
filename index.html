@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <p>build No.5 </p>
+  <p>build <No class="6"></No> </p>
 
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
@@ -18,6 +18,8 @@
 
 
   <button id="btnQueue" onclick="insertQueue()">จองคิว</button>
+
+  <button id="btnQueue" onclick="deleteQueue()">เรียกคิว</button>
 
   <script src="js/vconsole.min.js"></script>
   <script>
@@ -27,17 +29,20 @@
 
   <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
   <script>
-    var queue = 0
+    var runningNumber = 0
+    var currentNumber = 0
     var userId = ""
 
     function insertQueue() {
-      if(userId == "U01a6c9fb2651ec61b5b2bb30f171b8e1"){
-        queue= queue+1
-        document.getElementById("queue").innerHTML = "queue:"+queue
-      } else {
-        queue= queue-1
-        document.getElementById("queue").innerHTML = "queue:"+queue
-      }
+      runningNumber = runningNumber+1
+      document.getElementById("queue").innerHTML = "queue:"+(runningNumber-currentNumber)
+      // ส่ง userId+runningNumber ไปเก็บ
+    }
+
+    function insertQueue() {
+      currentNumber = currentNumber+1
+      document.getElementById("queue").innerHTML = "queue:"+(runningNumber-currentNumber)
+      // ส่ง noti ไปที่ userId แรก
     }
 
     async function getUserProfile() {
@@ -54,7 +59,19 @@
         } else {
           liff.login()
         }
-        document.getElementById("queue").innerHTML = "queue:"+queue
+        document.getElementById("queue").innerHTML = "queue:"+(runningNumber-currentNumber)
+
+        if(userId == "U01a6c9fb2651ec61b5b2bb30f171b8e1"){
+          // แสดงปุ่มเรียกคิว
+        } else {
+          // ตรวจสอบใน db ว่า userId จองไปรึยัง
+
+          // ถ้ายังไม่จองแสดงปุ่มจองคิว
+          
+          // ถ้าจองแล้วแสดงจำนวนคิว
+
+        }
+
       })
       await liff.init({ liffId: "1655187170-xynqG53n" })
     }
