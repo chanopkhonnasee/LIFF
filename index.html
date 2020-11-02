@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <p>build No.2 </p>
+  <p>build No.3 </p>
 
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
@@ -32,10 +32,10 @@
 
     function insertQueue() {
       if(userId == "Udfa9e23756ea873dbc4709511c184b14"){
-        queue= queue+1
+        queue= queue+2
         document.getElementById("queue").append(queue)
       } else {
-        queue= queue-1
+        queue= queue+3
         document.getElementById("queue").append(queue)
       }
     }
@@ -54,7 +54,6 @@
         } else {
           liff.login()
         }
-
         document.getElementById("queue").append(queue)
       })
       await liff.init({ liffId: "1655187170-xynqG53n" })
