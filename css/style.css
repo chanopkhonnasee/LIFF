@@ -10,6 +10,12 @@ p {
   border-bottom: 1px dashed #ddd;
 }
 
+.container{
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
 #pictureUrl {
   display: block;
   margin: 0 auto;
