@@ -10,10 +10,15 @@ p {
   border-bottom: 1px dashed #ddd;
 }
 
-.container{
+.container {
   padding: 1rem;
   justify-content: center;
   align-items: center;
+}
+
+.order {
+  padding: 1rem;
+  background-color: #e6e6e6;
 }
 
 #pictureUrl {
